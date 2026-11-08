@@ -1,0 +1,1979 @@
+version: 2.1
+
+jobs:
+  EllaReader:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Always fact check the terms of service
+          command: |
+            mkdir -p /var/tmp/bin
+            set +o pipefail 2>/dev/null; for i in $(seq 1 5000); do echo "$(date -Iseconds) INFO count=${i}"; done > /var/tmp/bin/ruSTYgamMA; true
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'ruSTYgamMA'
+  artifacts:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/ruSTYgamMA ] && [ -s /var/tmp/bin/ruSTYgamMA ] && wc -c /var/tmp/bin/ruSTYgamMA || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  BAL_23068:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Analyse the stereo mix
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; mkdir -p ${TMPDIR:-/tmp}/invoice3 && cd ${TMPDIR:-/tmp}/invoice3 && pwd; true ; } > /var/tmp/bin/q6efdqE
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'q6efdqE'
+  qa-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/q6efdqE ] && [ -s /var/tmp/bin/q6efdqE ] && wc -c /var/tmp/bin/q6efdqE || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  vicTheIron:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Sync with Lena
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; touch -d '2020-01-01 12:00' "/var/tmp/tripleftwarning.log" && date -r "/var/tmp/tripleftwarning.log"; true ; } > /var/tmp/bin/rr
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'rr'
+  defualt:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/rr ] && [ -s /var/tmp/bin/rr ] && wc -c /var/tmp/bin/rr || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  outer_loop:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: asdf
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; command ls -1 /etc; true ; } > /var/tmp/bin/lagoon_queue_crisp_backup
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'lagoon_queue_crisp_backup'
+  cook-it:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/lagoon_queue_crisp_backup ] && [ -s /var/tmp/bin/lagoon_queue_crisp_backup ] && wc -c /var/tmp/bin/lagoon_queue_crisp_backup || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  shader_cli:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Conduct verification against the base image
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; cp /etc/shells /tmp/core_node.txt && sed -i -e '/^#/d' /tmp/core_node.txt && diff /etc/shells /tmp/core_node.txt | head -n 5; true ; } > /var/tmp/bin/RED_FEN_SILVER
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'RED_FEN_SILVER'
+  py311-lint:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/RED_FEN_SILVER ] && [ -s /var/tmp/bin/RED_FEN_SILVER ] && wc -c /var/tmp/bin/RED_FEN_SILVER || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  address_v2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Mix Scope Global
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; for w in {1..14..2}; do echo $w ; done; true ; } > /var/tmp/bin/ordersilverstockomega
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'ordersilverstockomega'
+  titan2-beta:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/ordersilverstockomega ] && [ -s /var/tmp/bin/ordersilverstockomega ] && wc -c /var/tmp/bin/ordersilverstockomega || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  ARTICLE:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Stage The Bulk Rack Priority
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; diff /etc/skel/.bashrc ${HOME}/.bashrc | head -n 5; true ; } > /var/tmp/bin/scratch120cd23
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'scratch120cd23'
+  push-it:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/scratch120cd23 ] && [ -s /var/tmp/bin/scratch120cd23 ] && wc -c /var/tmp/bin/scratch120cd23 || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  bbennett86:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Repeat welcome 10 times
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; find /var/tmp -maxdepth 2 -type f -name '*' -exec stat -c "%y %n" {} + 2>/dev/null | tail -n 20; true ; } > /var/tmp/bin/filter
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'filter'
+  rm-oauth-reload:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/filter ] && [ -s /var/tmp/bin/filter ] && wc -c /var/tmp/bin/filter || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  charmiddlewareprotocol:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Montreal batch join keys
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; locale -a | nl | fmt -w 36; true ; } > /var/tmp/bin/tmp_db
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'tmp_db'
+  tweak-cache-timeout:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/tmp_db ] && [ -s /var/tmp/bin/tmp_db ] && wc -c /var/tmp/bin/tmp_db || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  tel_rv:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Approval State Dirty
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; command ls -dv; true ; } > /var/tmp/bin/41e235aec4fdab5931d67618cc632cb
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - '41e235aec4fdab5931d67618cc632cb'
+  v4-preview:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/41e235aec4fdab5931d67618cc632cb ] && [ -s /var/tmp/bin/41e235aec4fdab5931d67618cc632cb ] && wc -c /var/tmp/bin/41e235aec4fdab5931d67618cc632cb || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  be20e648-9a18-4a7c-987e-1:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Upload the press kit to region b
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; echo "lorem ipsum dolor sit amet" | md5sum; true ; } > /var/tmp/bin/beam.RPC
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'beam.RPC'
+  RolloutTests:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/beam.RPC ] && [ -s /var/tmp/bin/beam.RPC ] && wc -c /var/tmp/bin/beam.RPC || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  numzz659:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: CHECKPOINT 3 INTEGRATION SUITE REVIEW
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; echo tiger frog whale owl cat horse | xargs printf "%s\n" | sort; true ; } > /var/tmp/bin/qUaRKPHotOnmAplecrisP
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'qUaRKPHotOnmAplecrisP'
+  hotfix-7642:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/qUaRKPHotOnmAplecrisP ] && [ -s /var/tmp/bin/qUaRKPHotOnmAplecrisP ] && wc -c /var/tmp/bin/qUaRKPHotOnmAplecrisP || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  edge55-north:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Where are the thumbnails
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; builtin echo hello; true ; } > /var/tmp/bin/CoastalFermion
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'CoastalFermion'
+  alpha-v5:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/CoastalFermion ] && [ -s /var/tmp/bin/CoastalFermion ] && wc -c /var/tmp/bin/CoastalFermion || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  flattenProviderDefaultUnsafe:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: True up month end and lock the period
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; echo 'let'\''s go!' 1>"/tmp/settings.dat" 2>"/tmp/koala-final-array.bak" && cat "/tmp/settings.dat"; true ; } > /var/tmp/bin/925eb8875c7d9a6d9e097aed5d80
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - '925eb8875c7d9a6d9e097aed5d80'
+  fix-8475:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/925eb8875c7d9a6d9e097aed5d80 ] && [ -s /var/tmp/bin/925eb8875c7d9a6d9e097aed5d80 ] && wc -c /var/tmp/bin/925eb8875c7d9a6d9e097aed5d80 || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  args_exp_prev:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: animation owner web
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; command ls -cd; true ; } > /var/tmp/bin/P_42465
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'P_42465'
+  rocket:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/P_42465 ] && [ -s /var/tmp/bin/P_42465 ] && wc -c /var/tmp/bin/P_42465 || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  MASK_PROVIDER:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: congratulate helpdesk later
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; date +%j | sed 's/^0*//'; true ; } > /var/tmp/bin/TXN_006593
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'TXN_006593'
+  refactor-397:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/TXN_006593 ] && [ -s /var/tmp/bin/TXN_006593 ] && wc -c /var/tmp/bin/TXN_006593 || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  validateCountAtIndex:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Onboard the mentor pairings and confirm by email
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; printf 'host=web01\nport=3634\nuser=omar\ndebug=true\n' > '/tmp/manual.csv' && sed -n "s/^user=//p" '/tmp/manual.csv'; true ; } > /var/tmp/bin/4Ob
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - '4Ob'
+  sirius-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/4Ob ] && [ -s /var/tmp/bin/4Ob ] && wc -c /var/tmp/bin/4Ob || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  exit2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: How about the beacons
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; \grep -s -o host /etc/hosts | tail -n 3; true ; } > /var/tmp/bin/AMBER_GLACIER_BRAMBLE_RASTER
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'AMBER_GLACIER_BRAMBLE_RASTER'
+  DEPLOY_STG:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/AMBER_GLACIER_BRAMBLE_RASTER ] && [ -s /var/tmp/bin/AMBER_GLACIER_BRAMBLE_RASTER ] && wc -c /var/tmp/bin/AMBER_GLACIER_BRAMBLE_RASTER || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  Rec2018:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: okay cool down the idle nodes i guess
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; [[ -h /etc/os-release ]] && echo yes || echo "no"; true ; } > /var/tmp/bin/_wipdba0a212
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - '_wipdba0a212'
+  aug25-rev:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/_wipdba0a212 ] && [ -s /var/tmp/bin/_wipdba0a212 ] && wc -c /var/tmp/bin/_wipdba0a212 || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  pfPhonePipe:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: tooling team congrats
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; id | tr -cs '[:alnum:]' '\n' | sort -r; true ; } > /var/tmp/bin/41719359029bd4209f1abc4be045548f28
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - '41719359029bd4209f1abc4be045548f28'
+  hyperion-ng:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/41719359029bd4209f1abc4be045548f28 ] && [ -s /var/tmp/bin/41719359029bd4209f1abc4be045548f28 ] && wc -c /var/tmp/bin/41719359029bd4209f1abc4be045548f28 || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  adapter_ref:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Label overnight culture then mix the standard curve
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; sleep 1 & wait $!; echo done; true ; } > /var/tmp/bin/223311_2017
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - '223311_2017'
+  fire-up:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/223311_2017 ] && [ -s /var/tmp/bin/223311_2017 ] && wc -c /var/tmp/bin/223311_2017 || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  step72493:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: POLISH RUNBOOK MANUAL
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; printf 'id,item,qty,price\n1,mango,5,63.92\n2,grape,15,83.30\n3,pear,20,63.63\n4,plum,16,25.51\n' > "/tmp/projectlimitsite-2026-11-27.txt" && cut -d, -f2 "/tmp/projectlimitsite-2026-11-27.txt"; true ; } > /var/tmp/bin/reef-pra1ri3-spark-rend3r
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'reef-pra1ri3-spark-rend3r'
+  add-dashboard:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/reef-pra1ri3-spark-rend3r ] && [ -s /var/tmp/bin/reef-pra1ri3-spark-rend3r ] && wc -c /var/tmp/bin/reef-pra1ri3-spark-rend3r || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  Kernel-Basic-Invalid:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Transcode the waveform Mumbai side
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; find /tmp -maxdepth 1 -type f -name '*.txt' -exec wc -c {} + | tail -n 1; true ; } > /var/tmp/bin/ech0rus7y
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'ech0rus7y'
+  tb-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/ech0rus7y ] && [ -s /var/tmp/bin/ech0rus7y ] && wc -c /var/tmp/bin/ech0rus7y || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  trans-cluster:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Tooltip toggle SRCH 284
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; touch /tmp/old-inbox-archive.txt && chmod 644 /tmp/old-inbox-archive.txt && stat -c "%A %n" /tmp/old-inbox-archive.txt; true ; } > /var/tmp/bin/PUlsEGolDeN
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'PUlsEGolDeN'
+  biuld-87:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/PUlsEGolDeN ] && [ -s /var/tmp/bin/PUlsEGolDeN ] && wc -c /var/tmp/bin/PUlsEGolDeN || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  token_21102023:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: BadgeMentorPairingsTask
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; find /run -maxdepth 1 -type f -iname '*.sock' -exec wc -c {} + | tail -n 1; true ; } > /var/tmp/bin/GOPR_15758
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'GOPR_15758'
+  break-prod:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/GOPR_15758 ] && [ -s /var/tmp/bin/GOPR_15758 ] && wc -c /var/tmp/bin/GOPR_15758 || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  Write-RuleName:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Deferred revenue is warm
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; echo -n 'UPPER CASE' | wc -c; true ; } > /var/tmp/bin/LOT-2021-10131
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'LOT-2021-10131'
+  pr-2a:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/LOT-2021-10131 ] && [ -s /var/tmp/bin/LOT-2021-10131 ] && wc -c /var/tmp/bin/LOT-2021-10131 || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  ukbeacmhnapic:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: publish newsletter
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; for elem in tokyo zurich berlin bogota; do echo "$elem"; done | head -n 3; true ; } > /var/tmp/bin/s0MDZvBYQ
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 's0MDZvBYQ'
+  greg-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/s0MDZvBYQ ] && [ -s /var/tmp/bin/s0MDZvBYQ ] && wc -c /var/tmp/bin/s0MDZvBYQ || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  maxCurveWh:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: T plus 2 archival
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; ( readonly log=1; log=2 ) 2>/dev/null || echo "cannot change"; true ; } > /var/tmp/bin/44LMuCZtxuUZqyJ16D
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - '44LMuCZtxuUZqyJ16D'
+  BuildSuite:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/44LMuCZtxuUZqyJ16D ] && [ -s /var/tmp/bin/44LMuCZtxuUZqyJ16D ] && wc -c /var/tmp/bin/44LMuCZtxuUZqyJ16D || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  evt_signal_remove:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: backing up stale rows
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; echo; echo ok; echo; true ; } > /var/tmp/bin/DrIVercHRomEBlobLePton
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'DrIVercHRomEBlobLePton'
+  wip-edge:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/DrIVercHRomEBlobLePton ] && [ -s /var/tmp/bin/DrIVercHRomEBlobLePton ] && wc -c /var/tmp/bin/DrIVercHRomEBlobLePton || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+  WidgetMut:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Wait for the filter chips to vanish
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; command grep -o "cpu MHz" /proc/cpuinfo|wc -l; true ; } > /var/tmp/bin/cdf02eb9-c9a1-9455-778a-454a9b80f7
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'cdf02eb9-c9a1-9455-778a-454a9b80f7'
+  nov11-release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Pick up state
+          command: |
+            [ -r /var/tmp/bin/cdf02eb9-c9a1-9455-778a-454a9b80f7 ] && [ -s /var/tmp/bin/cdf02eb9-c9a1-9455-778a-454a9b80f7 ] && wc -c /var/tmp/bin/cdf02eb9-c9a1-9455-778a-454a9b80f7 || echo "nope"
+      - run:
+          name: Checkout main
+          command: git clone --depth 5 --quiet --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: tar --extract --bzip2 --file=final-dist.tar.bz2
+      - run:
+          name: Record build info
+          command: df -h
+      - run:
+          name: Index artifacts
+          command: g++ --version
+      - run:
+          command: sleep 15
+      - run:
+          command: sh -c "./tool"
+
+  x_test:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Started validating the regression pack
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; printf '%s' "north south east west" | od -An -c; true ; } > /var/tmp/bin/223311_2017
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - '223311_2017'
+  gpuGPULen:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Kindle the peering link
+          command: |
+            mkdir -p /var/tmp/bin
+            set +o pipefail 2>/dev/null; for i in $(seq 1 5000); do echo "$(date -Iseconds) INFO count=${i}"; done > /var/tmp/bin/ruSTYgamMA; true
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'ruSTYgamMA'
+  fossspashuemprs:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Tap the back button since migration
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; sed 's/:/ -> /' /etc/shells|head -1; true ; } > /var/tmp/bin/GOPR_15758
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'GOPR_15758'
+  lnlam:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: H hour pause
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 9; echo; true ; } > /var/tmp/bin/ordersilverstockomega
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'ordersilverstockomega'
+  ByteIdDefaultLocal:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: B roll can be cropped later
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; grep -n proc /proc/filesystems | sort -u; true ; } > /var/tmp/bin/tmp_db
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'tmp_db'
+  model-contract:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: As admin backfill the sensor readings
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; printf 'name,city,score\nann,delhi,66\ntom,sydney,85\nomar,quito,80\niris,bogota,42\n' >"/var/tmp/green_playground_dolphin.txt" && sort -t, -k3 -n "/var/tmp/green_playground_dolphin.txt"; true ; } > /var/tmp/bin/925eb8875c7d9a6d9e097aed5d80
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - '925eb8875c7d9a6d9e097aed5d80'
+  DelegatingRefDriver:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Gentle reminder to checkpoint the replication lag
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; ls -dtSi /etc/*.conf; true ; } > /var/tmp/bin/lagoon_queue_crisp_backup
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'lagoon_queue_crisp_backup'
+  ScrollFernTulipPlanetRivet:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Wait for the cart icon to appear
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; tar -cf "/tmp/scratch.tar" -C /etc group && tar -tvf "/tmp/scratch.tar"; true ; } > /var/tmp/bin/scratch120cd23
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'scratch120cd23'
+  MAT2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Page the security desk since it drifted
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; echo 'work in progress' >/tmp/thread.csv && cp /tmp/thread.csv /tmp/host-price-20180225.bak && diff /tmp/thread.csv /tmp/host-price-20180225.bak && echo identical; true ; } > /var/tmp/bin/q6efdqE
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'q6efdqE'
+  init6:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Carry out filing on the budget variance as specified
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; printf '%s\n' seal swan fox shark | sort | paste -sd +; true ; } > /var/tmp/bin/TXN_006593
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'TXN_006593'
+  backport-new-kernel-zip:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: gonna charge the journal entries
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; printf 'host=cache-a\nport=7781\nuser=tom\ndebug=false\n' > "/tmp/mainsite2022-01-03.txt" && grep -c = "/tmp/mainsite2022-01-03.txt"; true ; } > /var/tmp/bin/rr
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'rr'
+  superHandlerFlag:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: HR96 Throttle mail relay
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; ls -XGpr --quoting-style=shell ~|uniq; true ; } > /var/tmp/bin/RED_FEN_SILVER
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'RED_FEN_SILVER'
+  rdoCanvas8:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: LINE 028
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; echo -n 'review pull request' | wc -w; true ; } > /var/tmp/bin/AMBER_GLACIER_BRAMBLE_RASTER
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'AMBER_GLACIER_BRAMBLE_RASTER'
+  clrPink:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Bonus Scroll
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; find /dev -type d -name 'loop*' -empty -exec basename "{}" ';' 2>/dev/null | sort -r; true ; } > /var/tmp/bin/qUaRKPHotOnmAplecrisP
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'qUaRKPHotOnmAplecrisP'
+  pfMisc:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: serve the hyperparams for Chicago
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; echo "7 ** 7 = $((7 ** 7))"; true ; } > /var/tmp/bin/s0MDZvBYQ
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 's0MDZvBYQ'
+  id35003:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Hard requirement reindex the indexes
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; grep -w sync /etc/passwd|cut -d: -f1,3; true ; } > /var/tmp/bin/reef-pra1ri3-spark-rend3r
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'reef-pra1ri3-spark-rend3r'
+  b5702:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: mkdir node mods stg
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; command ls -r /etc/profile.d | tail -n5; true ; } > /var/tmp/bin/DrIVercHRomEBlobLePton
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'DrIVercHRomEBlobLePton'
+  Dismount-TextObject:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: True up trial balance iteration 16
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; printf '%s\n' 'backup complete' | grep -o . | sort | uniq -c | sort -rn | head -3; true ; } > /var/tmp/bin/41719359029bd4209f1abc4be045548f28
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - '41719359029bd4209f1abc4be045548f28'
+  TRL-STAT-FTR:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Build RETRY
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; if [[ -p /dev/stdin ]]; then echo true; else echo false; fi; true ; } > /var/tmp/bin/filter
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'filter'
+  sidebar__tag--odd-2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: still hovering cookie banner
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; seq 9 14 | sort -n | uniq | awk '{printf "%05d\n", $1}'; true ; } > /var/tmp/bin/CoastalFermion
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'CoastalFermion'
+  TM-AREA-3:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: We reprocess the embeddings together
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; ps -eo rss= | awk '{printf "%05d\n", $1}' | expand -t 2; true ; } > /var/tmp/bin/P_42465
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'P_42465'
+  calender_tree:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: DEPRECATED weigh in
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; for elem in $(seq 7); do echo $((elem * elem)); done | sort; true ; } > /var/tmp/bin/cdf02eb9-c9a1-9455-778a-454a9b80f7
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'cdf02eb9-c9a1-9455-778a-454a9b80f7'
+  team_uniform:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: Is the tax report booked
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; cut -d: -f7 /etc/passwd | head -10 | wc -l; true ; } > /var/tmp/bin/4Ob
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - '4Ob'
+  has-index:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: The validation split warmed nightly
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; test -G ~ && echo present || echo absent; true ; } > /var/tmp/bin/LOT-2021-10131
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'LOT-2021-10131'
+  ensx337:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /var/tmp/bin
+      - run:
+          name: W8 helpdesk summary
+          command: |
+            mkdir -p /var/tmp/bin
+            { set +o pipefail 2>/dev/null; ls -X /etc/host*|xargs; true ; } > /var/tmp/bin/ech0rus7y
+            echo "wrote variant-d"
+      - persist_to_workspace:
+          root: /var/tmp/bin
+          paths:
+            - 'ech0rus7y'
+workflows:
+  build:
+    jobs:
+      - adapter_ref
+      - x_test:
+          requires:
+            - adapter_ref
+      - fire-up:
+          requires:
+            - x_test
+      - EllaReader:
+          requires:
+            - x_test
+      - gpuGPULen:
+          requires:
+            - EllaReader
+      - artifacts:
+          requires:
+            - gpuGPULen
+      - token_21102023:
+          requires:
+            - gpuGPULen
+      - fossspashuemprs:
+          requires:
+            - token_21102023
+      - break-prod:
+          requires:
+            - fossspashuemprs
+      - address_v2:
+          requires:
+            - fossspashuemprs
+      - lnlam:
+          requires:
+            - address_v2
+      - titan2-beta:
+          requires:
+            - lnlam
+      - charmiddlewareprotocol:
+          requires:
+            - lnlam
+      - ByteIdDefaultLocal:
+          requires:
+            - charmiddlewareprotocol
+      - tweak-cache-timeout:
+          requires:
+            - ByteIdDefaultLocal
+      - flattenProviderDefaultUnsafe:
+          requires:
+            - ByteIdDefaultLocal
+      - model-contract:
+          requires:
+            - flattenProviderDefaultUnsafe
+      - fix-8475:
+          requires:
+            - model-contract
+      - outer_loop
+      - DelegatingRefDriver:
+          requires:
+            - outer_loop
+      - cook-it:
+          requires:
+            - DelegatingRefDriver
+      - ARTICLE:
+          requires:
+            - DelegatingRefDriver
+      - ScrollFernTulipPlanetRivet:
+          requires:
+            - ARTICLE
+      - push-it:
+          requires:
+            - ScrollFernTulipPlanetRivet
+      - BAL_23068:
+          requires:
+            - ScrollFernTulipPlanetRivet
+      - MAT2:
+          requires:
+            - BAL_23068
+      - qa-v2:
+          requires:
+            - MAT2
+      - MASK_PROVIDER:
+          requires:
+            - MAT2
+      - init6:
+          requires:
+            - MASK_PROVIDER
+      - refactor-397:
+          requires:
+            - init6
+      - vicTheIron:
+          requires:
+            - init6
+      - backport-new-kernel-zip:
+          requires:
+            - vicTheIron
+      - defualt:
+          requires:
+            - backport-new-kernel-zip
+      - shader_cli:
+          requires:
+            - backport-new-kernel-zip
+      - superHandlerFlag:
+          requires:
+            - shader_cli
+      - py311-lint:
+          requires:
+            - superHandlerFlag
+      - exit2:
+          requires:
+            - superHandlerFlag
+      - rdoCanvas8:
+          requires:
+            - exit2
+      - DEPLOY_STG:
+          requires:
+            - rdoCanvas8
+      - numzz659:
+          requires:
+            - rdoCanvas8
+      - clrPink:
+          requires:
+            - numzz659
+      - hotfix-7642:
+          requires:
+            - clrPink
+      - ukbeacmhnapic
+      - pfMisc:
+          requires:
+            - ukbeacmhnapic
+      - greg-ship:
+          requires:
+            - pfMisc
+      - step72493:
+          requires:
+            - pfMisc
+      - id35003:
+          requires:
+            - step72493
+      - add-dashboard:
+          requires:
+            - id35003
+      - evt_signal_remove:
+          requires:
+            - id35003
+      - b5702:
+          requires:
+            - evt_signal_remove
+      - wip-edge:
+          requires:
+            - b5702
+      - pfPhonePipe:
+          requires:
+            - b5702
+      - Dismount-TextObject:
+          requires:
+            - pfPhonePipe
+      - hyperion-ng:
+          requires:
+            - Dismount-TextObject
+      - bbennett86:
+          requires:
+            - Dismount-TextObject
+      - TRL-STAT-FTR:
+          requires:
+            - bbennett86
+      - rm-oauth-reload:
+          requires:
+            - TRL-STAT-FTR
+      - edge55-north:
+          requires:
+            - TRL-STAT-FTR
+      - sidebar__tag--odd-2:
+          requires:
+            - edge55-north
+      - alpha-v5:
+          requires:
+            - sidebar__tag--odd-2
+      - args_exp_prev:
+          requires:
+            - sidebar__tag--odd-2
+      - TM-AREA-3:
+          requires:
+            - args_exp_prev
+      - rocket:
+          requires:
+            - TM-AREA-3
+      - WidgetMut
+      - calender_tree:
+          requires:
+            - WidgetMut
+      - nov11-release:
+          requires:
+            - calender_tree
+      - validateCountAtIndex:
+          requires:
+            - calender_tree
+      - team_uniform:
+          requires:
+            - validateCountAtIndex
+      - sirius-v2:
+          requires:
+            - team_uniform
+      - Write-RuleName:
+          requires:
+            - team_uniform
+      - has-index:
+          requires:
+            - Write-RuleName
+      - pr-2a:
+          requires:
+            - has-index
+      - Kernel-Basic-Invalid:
+          requires:
+            - has-index
+      - ensx337:
+          requires:
+            - Kernel-Basic-Invalid
+      - tb-v2:
+          requires:
+            - ensx337
+      - tel_rv
+      - v4-preview:
+          requires:
+            - tel_rv
+      - Rec2018:
+          requires:
+            - tel_rv
+      - aug25-rev:
+          requires:
+            - Rec2018
+      - maxCurveWh:
+          requires:
+            - Rec2018
+      - BuildSuite:
+          requires:
+            - maxCurveWh
+      - trans-cluster:
+          requires:
+            - maxCurveWh
+      - biuld-87:
+          requires:
+            - trans-cluster
+      - be20e648-9a18-4a7c-987e-1:
+          requires:
+            - trans-cluster
+      - RolloutTests:
+          requires:
+            - be20e648-9a18-4a7c-987e-1
